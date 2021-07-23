@@ -1,0 +1,5 @@
+MAILTO=root
+
+0 * * * *       root    /var/scripts/snapshot-hourly.sh
+
+0 0 * * *       root    /var/scripts/snapshot-daily.sh
