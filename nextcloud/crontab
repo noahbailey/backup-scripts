@@ -1,5 +1,3 @@
 MAILTO=root
 
 0 */6 * * *   root   /opt/backup.sh
-
-0 */6 * * *   root   /opt/mysql.sh
