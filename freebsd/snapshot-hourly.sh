@@ -13,5 +13,5 @@ zfs snapshot -r tank@hourly-"`date '+%Y%m%d-%H%M'`"
 
 # Remove oldest hourly snapshot
 if [ $NUM_SNAPSHOTS -gt 24 ]; then 
-    zfs destroy -r -v "$OLDEST_SNAPSHOT"
+    zfs destroy -r -v "$OLDEST_SNAPSHOT" >> /var/log/snapshot.log
 fi
