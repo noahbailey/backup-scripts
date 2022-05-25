@@ -3,16 +3,18 @@ set -eEuo pipefail
 
 mkdir -p ~/.config/systemd/user/
 mkdir -p ~/.local/share/systemd/
+mkdir -p ~/.local/share/backup/
+
+cp exclude ~/.local/share/backup/
 
 cat << EOF | tee ~/.config/systemd/user/backup.timer
 [Unit]
 Description=System backup timer
 
 [Timer]
-OnCalendar=*-*-* 06,12,18:00:00
-OnCalendar=Daily
+OnCalendar=Hourly
 Persistent=true
-RandomizedDelaySec=120
+RandomizedDelaySec=600
 OnBootSec=300s
 
 [Install]

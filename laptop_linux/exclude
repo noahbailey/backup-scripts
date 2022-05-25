@@ -1,0 +1,11 @@
+.cache
+.thunderbird
+.mozilla
+.config/discord
+.config/Slack
+.config/Signal
+.config/Element
+.config/1Password
+.config/Code
+.vscode
+.config/protonmail/bridge/cache
