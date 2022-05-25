@@ -4,6 +4,7 @@ set -eEuo pipefail
 mkdir -p ~/.config/systemd/user/
 mkdir -p ~/.local/share/systemd/
 mkdir -p ~/.local/share/backup/
+mkdir -p ~/.apt/{lists,keys}
 
 cp exclude ~/.local/share/backup/
 cp backup.conf ~/.local/share/backup/
@@ -14,7 +15,6 @@ Description=System backup timer
 After=network.target
 
 [Timer]
-OnCalendar=*-*-* 13:30
 OnCalendar=Hourly
 Persistent=true
 RandomizedDelaySec=1800

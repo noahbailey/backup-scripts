@@ -10,7 +10,6 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
 source "/home/$USER/.local/share/backup/backup.conf"
 
 # Export list of installed packages
-mkdir -p ~/.apt/{lists,keys}
 dpkg --get-selections > ~/.apt/pkglist
 cp -R /etc/apt/sources.list.d/* ~/.apt/lists
 cp -R /etc/apt/trusted.gpg* ~/.apt/keys/
