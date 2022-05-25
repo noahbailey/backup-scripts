@@ -16,5 +16,5 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: shellcheck -e SC2006 ./*/*.sh
+        run: shellcheck -e SC2006,SC1090 ./*/*.sh
 
