@@ -9,6 +9,14 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
 ## Source settings file:
 source "/home/$USER/.local/share/backup/backup.conf"
 
+## Determine if we are on the correct network
+ssid=$(/sbin/iwgetid -r)
+echo "Current SSID is: $ssid"
+if [ "$ssid" != "$HOME_SSID" ]; then
+    echo "Aborting backup until we are at $HOME_SSID"
+    exit 1
+fi
+
 # Export list of installed packages
 dpkg --get-selections > ~/.apt/pkglist
 cp -R /etc/apt/sources.list.d/* ~/.apt/lists
@@ -25,6 +33,6 @@ rsync -iazh --delete --exclude-from="/home/$USER/.local/share/backup/exclude" \
 
 echo "$NOW" > ~/.local/share/backup/lastbackup
 
-if [ "$NOTIFY_SUCCESS" = true ]; then
+if [ "$NOTIFY_SUCCESS" == true ]; then
     notify-send "Backup successful."
 fi
