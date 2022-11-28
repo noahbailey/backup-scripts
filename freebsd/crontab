@@ -4,4 +4,6 @@ MAILTO=root
 
 0 0 * * *       root    /var/scripts/snapshot-daily.sh
 
+0 2 * * *      root    /var/scripts/offsite_backup.sh
+
 */15 * * * *    root    /var/scripts/check.sh
